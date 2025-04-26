@@ -2,10 +2,16 @@
   "expo": {
     "name": "children_vaccination_clinic",
     "slug": "children_vaccination_clinic",
+    "newArchEnabled": true,
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
+    "navigation": {
+      "deepLinking": {
+        "prefixes": ["myapp://"]
+      }
+    },
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -13,13 +19,28 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "hermes": false,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "fetch",
+          "remote-notification"
+        ],
+        "UIUserInterfaceStyle": "light",
+        "NSUserTrackingUsageDescription": "We need your permission to send notifications"
+      },
+      "bundleIdentifier": "marwa"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "hermes": false,
+      "permissions": [
+        "NOTIFICATIONS"
+      ],
+      "package": "com.marwa2712.children_vaccination_clinic"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +52,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d09cb3e0-e651-4b8c-9493-bc397f37bea4"
+      }
+    },
+    "notification": {
+      "icon": "./assets/images/BABY FEET.png"  
     }
   }
 }
